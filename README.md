@@ -1,8 +1,8 @@
 # [Collections] Collections tipos e funcionalidades
 
-:::info
+:info
 :bulb: Este artigo tem como objetivos esplanar cada tópico de collections.
-:::
+:
 
 ### :small_blue_diamond: :
 
@@ -103,13 +103,30 @@ public class Smartphone {
     boolean remove(Object o); 
 ```
 #### :small_blue_diamond: Métodos | Operadores de Consulta (Query)
-1. **.add**: Este método serve para adicionar um elemento no final da lista (operação opcional). O retorno do método é um boolean == true caso o elemento tenha sido inserido na lista do contrário false.
+1. **.size**: Este método retorna um inteiroindicando a quantidade total de elementos na lista. 
 ```gherkin=
-    boolean add(E e); //"E" é tipo de elemento que será inserido.
+    int size();
 ```
-2. **.remove**: Este método serve para remover um elemento da lista caso o mesmo seja encontrado. O retorno do método é um boolean == true caso o elemento tenha sido removido da lista do contrário false. O método tem sua sobrecarga. É possível passar um Object obj ou um int index.
+2. **.isEmpty**: Este método retorna um boolean == true caso a lista esteja vazia.
 ```gherkin=
-    boolean remove(Object o); 
+    boolean isEmpty();
 ```
-    
+3. **.contains**: Este método retorna um boolean == true caso a lista contenha o elemento solicitado. Porém ele só retorna true se e somente se o elemento buscado passar por todas as condições de **Objects.equals(objBuscado, elmLista)**. 
+
+>  *Exceptions* |
+    - **ClassCastException**: Caso o objeto buscado tenha um tipo diferente do especificado. |
+    - **NullPointerException**: Caso o argumento especificado seja nulo.
+```gherkin=
+    boolean contains(Object o);
+```
+4. **.interator**: Retorna um iterador sobre os elementos desta lista na sequência adequada.
+```gherkin=
+    Iterator<E> iterator();
+```
+5. **.toArray**: Retorna um array com todos os elementos da lista na sequência 1° ao n°. Será alocado uma nova memória para o array criado tornando o método segura para realizar mudanças no novo array. Este método pode ser sobrecarregado podendo ser passado como parametro o array no qual os elementos desta lista serão armazenados, se for grande o suficiente; caso contrário, um novo array do mesmo tipo de tempo de execução será alocado para essa finalidade.
+```gherkin=
+    Object[] toArray();
+    <T> T[] toArray(T[] a);
+```
+
 
